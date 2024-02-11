@@ -41,6 +41,7 @@
     </a>
   {{ else if .Page.Content }}
     <a href="{{ .Page.RelPermalink }}" class="{{ if $current }}active{{ end }}">
+      {{- partial "docs/inject/icon" -}}
       {{- partial "docs/title" .Page -}}
     </a>
   {{ else }}

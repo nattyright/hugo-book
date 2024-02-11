@@ -185,6 +185,10 @@ body[dir="rtl"] .book-menu {
   }
 }
 
+.book-header-pc {
+  display: block;
+}
+
 .book-search {
   position: relative;
   margin: $padding-16 0;
@@ -306,6 +310,9 @@ body[dir="rtl"] .book-menu {
 
   .book-header {
     display: block;
+  }
+  .book-header-pc {
+    display: none;
   }
 
   #menu-control:focus ~ main label[for="menu-control"] {
