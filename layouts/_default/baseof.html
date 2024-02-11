@@ -18,6 +18,9 @@
     </aside>
 
     <div class="book-page">
+      <header class="book-header-pc">
+        {{ partial "docs/header-pc" . }} 
+      </header>
       <header class="book-header">
         {{ template "header" . }} <!-- Mobile layout header -->
       </header>
