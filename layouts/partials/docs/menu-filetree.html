@@ -68,10 +68,25 @@
       {{- partial "docs/title" .Page -}}
     </a>
   {{ else if .Page.Content }}
-    <a href="{{ .Page.RelPermalink }}" class="{{ if $current }}active{{ end }}">
-      {{- partial "docs/inject/icon" -}} {{/* font awesome icon before link */}}
-      {{- partial "docs/title" .Page -}}
-    </a>
+
+      {{ if eq .Page.Params.linebreak "lore"}}
+          {{- partial "docs/inject/menu-linebreak-lore" -}}
+      {{ else if eq .Page.Params.linebreak "roleplay"}}
+          {{- partial "docs/inject/menu-linebreak-roleplay" -}}
+
+      {{ else }}
+        <a href="{{ .Page.RelPermalink }}" class="{{ if $current }}active{{ end }}">
+            {{ if eq .Page.Params.icon "introduction"}}
+              {{- partial "docs/inject/icon-introduction" -}} {{/* font awesome icon before link */}}
+            {{ else if eq .Page.Params.icon "story-so-far"}}
+              {{- partial "docs/inject/icon-story-so-far" -}} {{/* font awesome icon before link */}}
+            {{ else }}
+              {{- partial "docs/inject/icon" -}} {{/* font awesome icon before link */}}
+            {{ end }}
+            {{- partial "docs/title" .Page -}}
+        </a>
+      {{ end }}
+
   {{ else }}
     <span>{{- partial "docs/title" .Page -}}</span>
   {{ end }}
